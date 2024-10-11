@@ -30,6 +30,14 @@ class LikePostView(APIView):
     def post(self, request, post_id):
         post = get_object_or_404(Post, id=post_id)
         if Like.objects.filter(user=request.user, post=post).exists():
-            return Response({"detail": "Você já curtiu este post."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"detail": "You have liked it."}, status=status.HTTP_400_BAD_REQUEST)
         like = Like.objects.create(user=request.user, post=post)
         return Response(LikeSerializer(like).data, status=status.HTTP_201_CREATED)
+    
+    def delete(self, request, post_id):
+        post = get_object_or_404(Post, id=post_id)
+        like = Like.objects.filter(user=request.user, post=post).first()
+        if not like:
+            return Response({"detail": "You have not liked."}, status=status.HTTP_400_BAD_REQUEST)
+        like.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
