@@ -23,3 +23,13 @@ class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         return self.queryset.filter(author=self.request.user)
+    
+class LikePostView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, post_id):
+        post = get_object_or_404(Post, id=post_id)
+        if Like.objects.filter(user=request.user, post=post).exists():
+            return Response({"detail": "Você já curtiu este post."}, status=status.HTTP_400_BAD_REQUEST)
+        like = Like.objects.create(user=request.user, post=post)
+        return Response(LikeSerializer(like).data, status=status.HTTP_201_CREATED)
