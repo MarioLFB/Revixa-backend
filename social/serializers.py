@@ -1,14 +1,16 @@
 from rest_framework import serializers
 from .models import Post, Like
+from reviews.models import Review
 
 class PostSerializer(serializers.ModelSerializer):
     likes_count = serializers.SerializerMethodField()
     author = serializers.ReadOnlyField(source='author.username')
     liked_by = serializers.SerializerMethodField()
+    review = serializers.PrimaryKeyRelatedField(queryset=Review.objects.all(), required=False, allow_null=True)
 
     class Meta:
         model = Post
-        fields = ['id', 'content', 'author', 'created_at', 'updated_at', 'likes_count', 'liked_by']
+        fields = ['id', 'content', 'author', 'created_at', 'updated_at', 'likes_count', 'liked_by', 'review']
 
     def get_likes_count(self, obj):
         return obj.likes.count()
