@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "api",
     "social",
+    "reviews",
     "rest_framework",
     "corsheaders",
 ]
