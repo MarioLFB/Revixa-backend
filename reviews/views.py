@@ -8,3 +8,15 @@ class IsAdminUser(permissions.BasePermission):
     """
     def has_permission(self, request, view):
         return request.user and request.user.is_staff
+
+class ReviewListCreateView(generics.ListCreateAPIView):
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializer
+
+    def get_permissions(self):
+        if self.request.method == 'POST':
+            return [IsAdminUser()]
+        return [permissions.AllowAny()]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
