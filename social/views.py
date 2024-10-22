@@ -25,6 +25,9 @@ class PostListCreateView(generics.ListCreateAPIView):
         else:
             serializer.save(author=self.request.user)
 
+    def get_serializer_context(self):
+        return {'request': self.request}        
+
 
 class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
@@ -37,6 +40,9 @@ class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
             if post.author != self.request.user:
                 raise permissions.PermissionDenied("You are not allowed to modify this comment.")
         return post
+    
+    def get_serializer_context(self):
+        return {'request': self.request}
 
 
 class LikePostView(APIView):
