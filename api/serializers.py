@@ -6,12 +6,22 @@ from rest_framework import serializers
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'password']
-        extra_kwargs = {"password": {"write_only": True}}
+        fields = ['id', 'username', 'password', 'email']
+        extra_kwargs = {
+            "password": {"write_only": True},
+            "email": {"required": True}
+        }
+
 
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
         return user
+    
+    
+    def validate_email(self, value):
+        if not value:
+            raise serializers.ValidationError("The email field is required.")
+        return value
     
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
