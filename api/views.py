@@ -17,6 +17,15 @@ class CreateUserView(generics.CreateAPIView):
 # View to obtain a token
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
+    
+
+class UserProfileView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
+        serializer = UserSerializer(user)
+        return Response(serializer.data)    
 
 # View to update email
 class UpdateEmailView(APIView):
