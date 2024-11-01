@@ -23,7 +23,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['localhost', 'revixa-2c64c0effe9d.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'revixa-2c64c0effe9d.herokuapp.com']
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
