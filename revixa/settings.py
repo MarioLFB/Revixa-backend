@@ -73,10 +73,13 @@ if 'CLIENT_ORIGIN' in os.environ:
         os.environ.get('CLIENT_ORIGIN')
     ]
 else:
+    # Em desenvolvimento local
     CORS_ALLOWED_ORIGIN_REGEXES = [
         r"^http://127\.0\.0\.1:5173$",
         r"^http://localhost:5173$",
     ]
+
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'revixa.urls'
 
