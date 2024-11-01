@@ -23,7 +23,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEV') == '1'
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['localhost', 'revixa.herokuapp.com']
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "social",
     "reviews",
     "rest_framework",
+    "dj_rest_auth.registration",
     "corsheaders",
 ]
 
@@ -66,6 +67,16 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
+
+if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN')
+    ]
+else:
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        r"^http://127\.0\.0\.1:5173$",
+        r"^http://localhost:5173$",
+    ]
 
 ROOT_URLCONF = 'revixa.urls'
 
@@ -144,6 +155,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOWS_CREDENTIALS = True
