@@ -3,6 +3,7 @@ from datetime import timedelta
 from dotenv import load_dotenv
 import os
 import dj_database_url
+import re
 
 # Load environment variables from .env file
 load_dotenv()
@@ -80,8 +81,12 @@ if 'CLIENT_ORIGIN' in os.environ:
     CORS_ALLOWED_ORIGINS = [
         os.environ.get('CLIENT_ORIGIN')
     ]
+elif 'CLIENT_ORIGIN_DEV' in os.environ:
+    extracted_url = re.match(r'^http://localhost:\d+$', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        rf"{extracted_url}",
+    ]
 else:
-    # Em desenvolvimento local
     CORS_ALLOWED_ORIGIN_REGEXES = [
         r"^http://127\.0\.0\.1:5173$",
         r"^http://localhost:5173$",
