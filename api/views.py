@@ -8,16 +8,18 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from django.contrib.auth.hashers import make_password
 from .serializers import UserSerializer, MyTokenObtainPairSerializer
 
+
 # View to create a new user
 class CreateUserView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
 
+
 # View to obtain a token
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
-    
+
 
 class UserProfileView(APIView):
     permission_classes = [IsAuthenticated]
@@ -25,7 +27,8 @@ class UserProfileView(APIView):
     def get(self, request):
         user = request.user
         serializer = UserSerializer(user)
-        return Response(serializer.data)    
+        return Response(serializer.data)
+
 
 # View to update email
 class UpdateEmailView(APIView):
