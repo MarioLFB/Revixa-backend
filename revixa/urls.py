@@ -1,6 +1,9 @@
 from django.contrib import admin
 from django.urls import path, include
-from api.views import CreateUserView, MyTokenObtainPairView, UpdateEmailView, UpdatePasswordView, UserProfileView
+from api.views import (
+    CreateUserView, MyTokenObtainPairView, UpdateEmailView, UpdatePasswordView,
+    UserProfileView
+)
 from rest_framework_simplejwt.views import TokenRefreshView
 
 urlpatterns = [
