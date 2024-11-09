@@ -24,7 +24,7 @@ The database model includes:
 - **Post:** Related to reviews for discussions and social interactions.
 - **Like:** Allows users to like posts.
 
-![Database Model](docs\drf_models_revixa.png)
+![Database Model](docs/drf_models_revixa.png)
 
 #### User Model
 
