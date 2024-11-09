@@ -20,9 +20,12 @@ This project was designed with a focus on user interaction with reviewed content
 
 The database model includes:
 - **User:** Stores user information.
-- **Review:** Stores reviews made by users.
-- **Post:** Related to reviews for discussions and social interactions.
-- **Like:** Allows users to like posts.
+- **Review:** Stores reviews made by Admins.
+- **Post:** Related to reviews for discussions and social interactions.(create postis limited to users only)
+- **Like:** Allows users only to like posts.
+
+Note: No user (visitors) can have access to the content of reviews, posts and likes through the backend, but do not have access to Create posts, also do not have access to give likes.
+
 
 ![Database Model](docs/drf_models_revixa.png)
 
