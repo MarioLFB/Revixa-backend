@@ -77,4 +77,6 @@ class LikePostView(APIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
         like.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(
+            status=status.HTTP_204_NO_CONTENT
+)
