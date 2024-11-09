@@ -39,12 +39,18 @@ class UpdateEmailView(APIView):
         new_email = request.data.get("email")
 
         if not new_email:
-            return Response({"error": "The email field is required."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {"error": "The email field is required."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
         user.email = new_email
         user.save()
 
-        return Response({"message": "Email updated successfully!"}, status=status.HTTP_200_OK)
+        return Response(
+            {"message": "Email updated successfully!"},
+            status=status.HTTP_200_OK
+        )
 
 
 class UpdatePasswordView(APIView):
@@ -56,12 +62,21 @@ class UpdatePasswordView(APIView):
         new_password = request.data.get("new_password")
 
         if not user.check_password(current_password):
-            return Response({"error": "Incorrect current password."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {"error": "Incorrect current password."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
         if not new_password:
-            return Response({"error": "The new password field is required."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {"error": "The new password field is required."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
         user.password = make_password(new_password)
         user.save()
 
-        return Response({"message": "Password changed successfully!"}, status=status.HTTP_200_OK)
+        return Response(
+            {"message": "Password changed successfully!"},
+            status=status.HTTP_200_OK
+        )
