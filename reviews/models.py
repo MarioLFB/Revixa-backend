@@ -15,4 +15,6 @@ class Review(models.Model):
     author = models.ForeignKey(User, related_name='reviews', on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Review: {self.title} by {self.author.username}"
+        return (
+            f"Review: {self.title} by {self.author.username}"
+        )
