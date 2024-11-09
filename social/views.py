@@ -66,7 +66,10 @@ class LikePostView(APIView):
             )
 
         like = Like.objects.create(user=request.user, post=post)
-        return Response(LikeSerializer(like).data, status=status.HTTP_201_CREATED)
+        return Response(
+            LikeSerializer(like).data,
+            status=status.HTTP_201_CREATED
+        )
 
     def delete(self, request, post_id):
         post = get_object_or_404(Post, id=post_id)
