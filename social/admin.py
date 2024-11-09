@@ -3,7 +3,10 @@ from .models import Post, Like
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('id', 'author', 'content', 'created_at', 'updated_at', 'review')
+    list_display = (
+        'id', 'author', 'content', 'created_at', 'updated_at',
+        'review'
+    )
     search_fields = ('content', 'author__username')
     list_filter = ('created_at', 'updated_at', 'author')
     readonly_fields = ('created_at', 'updated_at')
