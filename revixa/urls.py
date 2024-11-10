@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
+from .views import home
 from api.views import (
     CreateUserView, MyTokenObtainPairView, UpdateEmailView, UpdatePasswordView,
     UserProfileView
@@ -41,4 +42,5 @@ urlpatterns = [
     path('api-auth/', include("rest_framework.urls")),
     path('social/', include('social.urls')),
     path('reviews/', include('reviews.urls')),
+    path('', home),
 ]
