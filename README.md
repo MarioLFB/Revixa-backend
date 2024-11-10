@@ -209,3 +209,15 @@ These tests confirm that the administrative functions are properly secured and f
     <br>
     </details>
 </details>
+
+##### Back to [top](#table-of-contents)
+
+
+## Credits
+
+
+### Code
+
+This project was built drawing inspiration from the Code Institute's Django REST API demonstration during the Back-End module.
+
+##### Back to [top](#table-of-contents)
