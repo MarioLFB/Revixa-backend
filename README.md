@@ -1,6 +1,10 @@
 # REVIXA Backend
 
-This repository contains the API developed using Django REST Framework for the REVIXA application, an interactive system for reviews and social interactions.
+**Developer: Mario Borges**
+
+💻 [Live link](https://revixa-2c64c0effe9d.herokuapp.com/)
+
+This repository contains the API developed using Django REST Framework for the REVIXA application, an interactive system for reviews and social interactions. ([repository here](https://github.com/MarioLFB/Revixa-frontend) and [live website here](https://revixa-frontend-d26a64f75023.herokuapp.com/))
 
 ## Table of Contents
   - [User Stories](#user-stories)
