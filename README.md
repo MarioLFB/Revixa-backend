@@ -83,7 +83,7 @@ Note: No user (visitors) can have access to the content of reviews, posts and li
 
 ### Python Validation
 
-Pycodestyle was used to ensure all Python code adhered to standard formatting guidelines. All necessary actions were taken to format the code according to these standards, ensuring consistency and compliance throughout the project.
+Pycodestyle was used to ensure all Python code adhered to standard formatting guidelinesin style and conforms to the PEP8 style guide. All necessary actions were taken to format the code according to these standards, ensuring consistency and compliance throughout the project.
 
 ### Manual Testing of User Stories
 
