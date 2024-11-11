@@ -11,7 +11,7 @@ This repository contains the API developed using Django REST Framework for the R
   - [Database](#database)
   - [Technologies Used](#technologies-used)
   - [Validation](#validation)
-  - [Testing](#testing)
+  - [Testing](#manual-testing-of-user-stories)
   - [Credits](#credits)
 
 ## User Stories
