@@ -12,6 +12,7 @@ This repository contains the API developed using Django REST Framework for the R
   - [Technologies Used](#technologies-used)
   - [Validation](#validation)
   - [Testing](#manual-testing-of-user-stories)
+  - [Automated Test](#automated-test)
   - [Credits](#credits)
 
 ## User Stories
@@ -211,6 +212,28 @@ These tests confirm that the administrative functions are properly secured and f
     <br>
     <img src="docs\manual_test\user_test_likes_9.jpg">
     <br>
+    </details>
+</details>
+
+### Automated Test
+
+Automated tests were conducted on the Authentication (API), Reviews, and Social applications to ensure proper functionality. All tests passed successfully, verifying that authentication workflows, CRUD operations, and permission controls operate as intended. This comprehensive testing confirms the reliability and stability of the system across these core modules.
+
+<details><summary>API</summary>
+    <details><summary>Tests</summary>
+    <img src="docs\automated_test\api_tests\api_tests.jpg">
+    </details>
+</details>
+
+<details><summary>REVIEWS</summary>
+    <details><summary>Tests</summary>
+    <img src="docs\automated_test\reviews_tests\reviews_tests.jpg">
+    </details>
+</details>
+
+<details><summary>SOCIAL</summary>
+    <details><summary>Tests</summary>
+    <img src="docs\automated_test\social_tests\social_tests.jpg">
     </details>
 </details>
 
