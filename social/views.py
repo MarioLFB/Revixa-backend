@@ -1,6 +1,7 @@
 from rest_framework import generics, status, permissions
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
 from .models import Post, Like
 from .serializers import PostSerializer, LikeSerializer
@@ -38,7 +39,7 @@ class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
         post = super().get_object()
         if self.request.method in ['PUT', 'PATCH', 'DELETE']:
             if post.author != self.request.user:
-                raise permissions.PermissionDenied(
+                raise PermissionDenied(
                     "You are not allowed to modify this comment."
                 )
         return post
